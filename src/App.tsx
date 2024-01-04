@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import mei from "./assets/mei.png";
+import hokaru from "./assets/hokaru.png";
+import mirai from "./assets/mirai.png";
+import nao from "./assets/nao.png";
+import ayano from "./assets/ayano.png";
+import yomi from "./assets/yomi.png";
+import usa from "./assets/usa.png";
+import mitsuki from "./assets/mitsuki.png";
+
+import './App.css';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div> :))
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="flex justify-between">
+        <img src={ayano} alt="ayano" className="logo w-7" />
+        <img src={hokaru} alt="hokaru" className="logo w-7" />
+        <img src={mei} alt="mei" className="logo w-7" />
+        <img src={nao} alt="nao" className="logo w-7" />
+        <img src={mirai} alt="mirai" className="logo w-7" />
+        <img src={yomi} alt="yomi" className="logo w-7" />
+        <img src={usa} alt="usa" className="logo w-7" />
+        <img src={mitsuki} alt="mitsuki" className="logo w-7" />
       </div>
-      <h1>Vite + React</h1>
+
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
         <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
+          <code>soda shower!</code> FC is coming...
         </p>
       </div>
       <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+        敬請期待!
       </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
