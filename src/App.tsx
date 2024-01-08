@@ -1,19 +1,19 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 
-import ayano from "./assets/ayano.png";
-import koharu from "./assets/koharu.png";
-import mei from "./assets/mei.png";
-import nao from "./assets/nao.png";
-import mirai from "./assets/mirai.png";
-import yomi from "./assets/yomi.png";
-import usa from "./assets/usa.png";
-import mitsuki from "./assets/mitsuki.png";
+import ayano from "./assets/ayano-1.png";
+import koharu from "./assets/koharu-1.png";
+import mei from "./assets/mei-1.png";
+import nao from "./assets/nao-1.png";
+import mirai from "./assets/mirai-1.png";
+import yomi from "./assets/yomi-1.png";
+import usa from "./assets/usa-1.png";
+import mitsuki from "./assets/mitsuki-1.png";
 
-import ayano2 from "./assets/ayano2.png";
-import koharu2 from "./assets/koharu2.png";
-import nao2 from "./assets/nao2.png";
-import mei2 from "./assets/mei2.png";
-import mirai2 from "./assets/mirai2.png";
+import ayano2 from "./assets/ayano-2.png";
+import koharu2 from "./assets/koharu-2.png";
+import nao2 from "./assets/nao-2.png";
+import mei2 from "./assets/mei-2.png";
+import mirai2 from "./assets/mirai-2.png";
 
 import './App.css';
 
@@ -32,18 +32,21 @@ const sodaImage = [
 
 function App() {
   const [soda, setSoda] = useState([0,0,0,0,0]);
+  const handleClick = useCallback((cloth: number, index: number) => {
+    setSoda(soda => {
+      return [
+        ...soda.slice(0, index),
+        (cloth+1) % 2,
+        ...soda.slice(index+1)
+      ];
+    });
+  }, []);
   return (
     <>
       <div className="flex justify-between">
         {soda.map((cloth, index) =>
-            <img src={sodaImage[cloth * 5 + index]} className="logo h-14" onClick={() => {
-              setSoda(soda => {
-                return [
-                  ...soda.slice(0, index),
-                  (cloth+1) % 2,
-                  ...soda.slice(index+1)
-                ];
-              });
+            <img key={index} src={sodaImage[cloth * 5 + index]} className="logo h-14" onClick={() => {
+              handleClick(cloth, index);
             }} />
         )}
         <img src={yomi} alt="yomi" className="logo h-14" />
