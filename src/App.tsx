@@ -40,7 +40,7 @@ const sodaImage = [
 
 function App() {
   const [soda, setSoda] = useState([0,0,0,0,0]);
-  const [showRetired, setShowRetired] = useState(true);
+  const [showRetired, setShowRetired] = useState(false);
 
   const downloadImage = useCallback((imageUrl: string, fileName: string) => {
     const tempLink = document.createElement('a');
